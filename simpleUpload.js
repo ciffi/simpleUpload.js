@@ -814,11 +814,11 @@ var on_finish = function(){
 
 	          return ajax_xhr;
 
-	        }, error: function() {
+	        }, error: function(err) {
 
 	          private_upload_data[upload_num].xhr = null;
 
-	          on_error(upload_num, { name: "RequestError", message: "Could not get response from server" });
+	          on_error(upload_num, { name: "RequestError", message: "Could not get response from server", serverError: err });
 
 	        }, success: function(data) {
 
